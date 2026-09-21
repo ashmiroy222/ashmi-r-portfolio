@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azure Monitor Health Models · ashmi.design</title>
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body class="cs-page">
+<header class="topbar">
+  <a class="brand" href="../index.html">Ashmi Roy</a>
+  <nav>
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+</header>
+<main class="cs-main cs-wide">
+<div class="cs-layout">
+<aside class="cs-toc" aria-label="On this page">
+<div class="cs-toc-in">
+  <div class="cs-toc-title">Contents</div>
+  <ol>
+      <li><a href="#cs-overview">Overview</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#cs-contribution">My Contribution</a></li>
+      <li><a href="#cs-team">Team Deliverables</a></li>
+      <li><a href="#cs-outcome">Outcome</a></li>
+      <li><a href="#cs-reflection">Reflection</a></li>
+  </ol>
+</div>
+</aside>
+<div class="cs-body">
+
+
+<section class="cs-hero" id="cs-top">
+  <a class="cs-back" href="../index.html#work">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Back to all work
+  </a>
+  <span class="tag">Enterprise UX · Data Visualization</span>
+  <h1 class="cs-title" style="text-align:left; margin-left:0;">Azure Monitor Health Models</h1>
+  <p class="cs-subtitle">Redesigning how people read system health inside Microsoft Azure, so someone
+  under pressure can see what is failing, when it changed, and what to fix first.</p>
+
+  <a href="#cs-contribution" class="cs-jump" style="display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:.78rem; color:var(--bg); background:var(--ink); padding:10px 18px; border-radius:2px; text-decoration:none; margin-bottom:34px; width:fit-content;">
+    Jump to my work
+    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+  </a>
+
+  <div class="cs-meta">
+    <div class="cs-meta-item"><b>Role</b>UX Researcher and Designer</div>
+    <div class="cs-meta-item"><b>Timeline</b>August to December 2025</div>
+    <div class="cs-meta-item"><b>Tools</b>Figma</div>
+    <div class="cs-meta-item"><b>Team</b>7 students, 2 Microsoft engineering sponsors</div>
+  </div>
+</section>
+
+<div class="cs-chart-grid" style="display:grid; gap:32px; align-items:center; margin:0 clamp(20px,5vw,64px) 44px; padding-bottom:36px; border-bottom:1px solid var(--line);">
+  <figure class="cs-figure">
+    <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-health-model-tree.png" alt="A health model shown as a tree of connected Azure resources, each circled in green for healthy or red for unhealthy" width="1438" height="800"></div>
+  </figure>
+  <p style="font-family:'IBM Plex Mono', monospace; font-size:.78rem; color:var(--ink-soft); line-height:1.7; margin:0;">
+    A health model. Every circle is a piece of a cloud system, colored by its state.
+    When something breaks, engineers read this tree to find out where. Existing Azure interface shown for context.
+  </p>
+</div>
+
+<section class="cs-section cs-overview" id="cs-overview">
+  <div class="cs-section-label">Overview</div>
+  <p>Azure Health Models draws a cloud system as a tree of connected parts, each marked healthy, degraded,
+  or unhealthy. People open it when something is already going wrong, and it was built for experts.</p>
+  <p>Our team of seven worked with two Microsoft engineers to make it clearer for both new and experienced
+  users. I designed the Threshold Spectrum, a gauge that shows how close an entity is to failing. I also mapped and tested the Visibility of State designs.</p>
+
+  <div style="border-left:2px solid var(--ink); background:var(--surface-2); border-radius:0 12px 12px 0; padding:20px 24px; margin-top:24px;">
+    <div class="cs-kicker" style="margin-bottom:8px;">Design question</div>
+    <p style="font-family:'Fraunces', serif; font-size:1.15rem; color:var(--ink); margin:0; line-height:1.5; max-width:none;">
+      How can we redesign Azure Monitor health models to enhance clarity and usability for both
+      experienced and new users, without breaking what already works?
+    </p>
+  </div>
+</section>
+
+<section class="cs-section" id="cs-users">
+  <div class="cs-section-label">Who we designed for</div>
+  <div class="cs-audience">
+    <div class="cs-note">
+      <h3>New users</h3>
+      <p>Interns and early practitioners who need guidance and quick value.</p>
+    </div>
+    <div class="cs-note">
+      <h3>Experienced users</h3>
+      <p>Engineers and architects who need speed, control, and depth.</p>
+    </div>
+  </div>
+  <p class="cs-lead" style="margin:0 0 32px;">Our persona, Joel, is new to Azure. He knows the concepts but not the interface, and has to decide what to fix first.</p>
+
+  <div class="cs-section-label">What made it hard</div>
+  <div class="cs-outcome-grid">
+    <div class="credential">
+      <div class="credential-icon num">01</div>
+      <b>Used in a crisis</b>People open it when something is already failing, so every extra click costs time.
+    </div>
+    <div class="credential">
+      <div class="credential-icon num">02</div>
+      <b>Steep learning curve</b>Even experienced users learned by trial and error, and many features were hidden.
+    </div>
+    <div class="credential">
+      <div class="credential-icon num">03</div>
+      <b>Color does the work</b>State is shown mostly by color, which is hard to read at scale or with color blindness.
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <details class="cs-collapse">
+    <summary>
+      <div>
+        <div class="cs-section-label" style="margin-bottom:6px;">Background</div>
+        <div class="cs-collapse-title">What is Azure Health Models, and why is it hard to use?</div>
+      </div>
+      <div class="cs-collapse-toggle">
+        <span class="label-closed">Read more</span><span class="label-open">Read less</span>
+        <svg class="chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+    </summary>
+    <div class="cs-collapse-body">
+      <p>Azure Health Models lets teams track the condition of the resources behind an application. It offers a
+      graph, a timeline, custom health signals, and alerts sent to the people who manage the system.</p>
+      <p>Our scope was configuration, visualization, and alerting. Early on we learned there is no single
+      experience to design for. What a user sees depends on how the system is set up and how familiar they
+      are with Azure, so we shifted from streamlining one path to supporting both experts and newcomers.</p>
+      <p>Every idea also had to fit Microsoft's design system and be realistic for Azure's engineers to build.</p>
+    </div>
+  </details>
+</section>
+
+<section class="cs-section" id="process">
+  <div class="cs-section-label">Process</div>
+  <h2 class="cs-h2">Research first, then ideas</h2>
+
+  <div class="cs-highlight" style="margin-top:0;">
+    <div class="cs-highlight-head"><h3>Discover</h3></div>
+    <p class="sub">Click a step to see what we did.</p>
+    <div class="cs-flow n6" role="tablist" aria-label="Process steps">
+      <button type="button" class="cs-flow-step" role="tab" aria-selected="true"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg></div><b>Secondary research</b><span>Docs and forums</span></button>
+      <button type="button" class="cs-flow-step" role="tab" aria-selected="false"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4v16M17 4v16M3 8h8M13 16h8"/></svg></div><b>Competitors</b><span>Four rivals</span></button>
+      <button type="button" class="cs-flow-step" role="tab" aria-selected="false"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9"/></svg></div><b>Heuristics</b><span>10 heuristics</span></button>
+      <button type="button" class="cs-flow-step" role="tab" aria-selected="false"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div><b>Interviews</b><span>2 users</span></button>
+      <button type="button" class="cs-flow-step" role="tab" aria-selected="false"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div><b>Priorities</b><span>With sponsors</span></button>
+      <button type="button" class="cs-flow-step" role="tab" aria-selected="false"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l4-1 11-11-3-3L5 16l-1 4z"/><path d="M14 6l3 3"/></svg></div><b>Sketching</b><span>Gauge concept</span></button>
+    </div>
+    <div class="cs-step-panels">
+      <div class="cs-step-panel active" role="tabpanel">
+        <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-health-model-tree.png" alt="A health model shown as a tree of connected Azure resources" width="1438" height="800"></div>
+        <div><span class="badge team">Team</span>
+          <div class="pair"><div class="lab">We read</div><p>Microsoft's docs, community forums, and a walkthrough video of how Health Models works.</p></div>
+          <div class="pair"><div class="lab">We found</div><p>A tool built for experts. It offers a graph, a timeline, custom health signals, and alerts, but what a user sees depends on how the system is set up.</p></div>
+          <div class="pair"><div class="lab">So</div><p>There is no single experience to design for, and we had to plan for both experts and newcomers.</p></div>
+        </div>
+      </div>
+      <div class="cs-step-panel" role="tabpanel">
+        <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-datadog-analysis.png" alt="Sticky notes summarizing Datadog features from the competitive analysis" width="2134" height="1416"></div>
+        <div><span class="badge">My work</span>
+          <div class="pair"><div class="lab">We compared</div><p>Azure with four rival monitoring tools, to see how each one shows system health.</p></div>
+          <div class="pair"><div class="lab">My part</div><p>The Datadog analysis. I broke its features down on sticky notes for the team's competitive analysis.</p></div>
+        </div>
+      </div>
+      <div class="cs-step-panel" role="tabpanel">
+        <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-heuristic-table.png" alt="Heuristic evaluation table scoring Azure against ten heuristics" width="989" height="815"></div>
+        <div><span class="badge team">Team</span>
+          <div class="pair"><div class="lab">We scored</div><p>Azure Health Models against 10 usability heuristics.</p></div>
+          <div class="pair"><div class="lab">Result</div><p>3 fail, 2 need work, 5 pass.</p></div>
+          <div class="pair"><div class="lab">The failures</div><p>System status, consistency and standards, and flexibility and efficiency.</p></div>
+          <div class="pair"><div class="lab">Also</div><p>The graph shows state mostly through color, which is hard to read at scale or with color blindness.</p></div>
+        </div>
+      </div>
+      <div class="cs-step-panel" role="tabpanel">
+        <div class="frame quote"><q>How close am I to unhealthy from degraded?</q><span>An Azure user, in our interviews</span></div>
+        <div><span class="badge">My work</span>
+          <div class="pair"><div class="lab">We heard</div><p>Alert fatigue and a steep learning curve.</p></div>
+          <div class="pair"><div class="lab">From</div><p>2 user interviews. Users described learning the tool by trial and error, and said many features were hidden.</p></div>
+          <div class="pair"><div class="lab">My part</div><p>I wrote the interview protocol and took part in the interviews.</p></div>
+        </div>
+      </div>
+      <div class="cs-step-panel" role="tabpanel">
+        <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-priority-matrix.png" alt="Priority matrix plotting design ideas by ease of execution and impact" width="1968" height="1380"></div>
+        <div><span class="badge team">Team</span>
+          <div class="pair"><div class="lab">We ranked</div><p>Ideas by ease of execution and impact, together with our Microsoft sponsors.</p></div>
+          <div class="pair"><div class="lab">Result</div><p>Four ideas moved forward.</p></div>
+          <div class="pair"><div class="lab">Why it mattered</div><p>We had one semester, and every idea had to fit Microsoft's design system and be realistic for Azure's engineers to build.</p></div>
+        </div>
+      </div>
+      <div class="cs-step-panel" role="tabpanel">
+        <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-threshold-sketch.png" alt="Hand sketch of a gauge with unhealthy, degraded, and healthy zones and a needle" width="1454" height="872"></div>
+        <div><span class="badge">My work</span>
+          <div class="pair"><div class="lab">We sketched</div><p>Solutions as a team, starting from the ideas that moved forward.</p></div>
+          <div class="pair"><div class="lab">My idea</div><p>A gauge for how close an entity is to failing, with unhealthy, degraded, and healthy zones and a needle for the current state.</p></div>
+          <div class="pair"><div class="lab">It became</div><p>The Threshold Spectrum, shown below.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="cs-stage-result" style="margin:22px 0 0;"><b>Key shift.</b> There is no single Azure experience, so we designed for new and experienced users together.</div>
+  </div>
+
+  <div class="cs-note" style="margin-top:28px;">
+    <h3>Beyond the Threshold Spectrum</h3>
+    <ul class="cols">
+      <li>Analyzed Datadog for the competitive analysis.</li>
+      <li>Wrote the interview and testing protocols.</li>
+      <li>Took part in interviews and ran usability tests.</li>
+      <li>Mapped current and redesigned flows for Visibility of State.</li>
+      <li>Presented and discussed work with Microsoft sponsors.</li>
+      <li>Wrote the documentation pages for my activities.</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="cs-divider">
+
+<section class="cs-section" id="cs-contribution" style="scroll-margin-top:100px;">
+  <div class="cs-section-label">My Contribution</div>
+  <span class="cs-owner">My feature</span>
+  <h2 class="cs-h2">Threshold Spectrum: how close is this to failing?</h2>
+  <p class="cs-lead">A degraded entity looks the same whether it just crossed the line or is minutes from failing.
+  I designed a gauge that shows where an entity sits between healthy and unhealthy, so users can judge urgency at a glance.</p>
+
+  <div class="cs-quote-card">
+    <q>How close am I to unhealthy from degraded?</q>
+    <span>Question raised by an Azure user in our interviews</span>
+  </div>
+
+  <div class="cs-split">
+    <figure class="cs-figure">
+      <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-threshold-sketch.png" alt="Hand sketch of a semicircle gauge split into unhealthy, degraded, and healthy zones with a needle marking the current state" width="1454" height="872"></div>
+      <figcaption>First sketch. Three zones and a needle for the current state.</figcaption>
+    </figure>
+    <div>
+      <div class="cs-kicker">Sketch</div>
+      <p>The first idea was a gauge with unhealthy, degraded, and healthy zones and a needle for the current state. I also sketched a second arrow to show a previous state when a time filter is applied.</p>
+      <p>The goal was a visual aid that avoids dense numbers and timelines, driven by thresholds users already set.</p>
+    </div>
+  </div>
+
+  <div class="cs-split rev">
+    <div>
+      <div class="cs-kicker">Prototype</div>
+      <p>I placed the gauge inside the existing Entity Details screen, using Microsoft's own layout and components.</p>
+      <p>A value label sits under the needle, so state is never communicated by color alone. A Health Score card breaks the number down by signal, showing what is pulling an entity toward failure.</p>
+    </div>
+    <figure class="cs-figure">
+      <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-threshold-spectrum.png" alt="Entity Details screen in Azure with the Threshold Spectrum gauge and a Health Score breakdown added" width="1734" height="900"></div>
+      <figcaption>Prototype on the Entity Details screen. Score values are illustrative.</figcaption>
+    </figure>
+  </div>
+
+  <div class="cs-note-grid">
+    <div class="cs-note">
+      <h3>What testing changed</h3>
+      <ul>
+        <li>The gauge started as a smooth gradient. I switched to clear color blocks, which are simpler and make the number easier to read.</li>
+        <li>Later feedback confirmed it: users were unsure what "halfway to red" means on a gradient.</li>
+      </ul>
+    </div>
+    <div class="cs-note">
+      <h3>The open question</h3>
+      <ul>
+        <li>Each entity has its own signals with different units. One scale has to be built from the most impactful ones.</li>
+        <li>Thresholds would need to be set by users, and criticality also depends on context and rate of change.</li>
+        <li>The team's handoff lists feasibility research as the next step.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="cs-divider">
+
+<section class="cs-section" id="cs-vis">
+  <span class="cs-owner">My work</span>
+  <h2 class="cs-h2">Visibility of State: seeing the problem in a big tree</h2>
+  <p class="cs-lead">Health was shown mainly through color. One interviewee described 61 API and database calls just for a login page, which means 61 nodes to scan. Our team designed a way to focus on what matters. I mapped the current experience against the redesigned flow, then tested the designs with users.</p>
+
+  <figure class="cs-figure" style="margin-bottom:28px;">
+    <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-vis-state-flow.png" alt="Flow comparing the current experience of hovering over every node with the redesigned legend that highlights all nodes of one state" width="2576" height="1214"></div>
+    <figcaption>My flow map. Before: hover over every node and hope nothing is missed. After: pick a state in the legend and every matching node is highlighted.</figcaption>
+  </figure>
+
+  <div class="cs-chart-grid" style="display:grid; gap:20px; align-items:start;">
+    <figure class="cs-figure">
+      <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-vis-state-highlight.png" alt="Graph with the Unhealthy state selected in the legend and unrelated nodes faded" width="1620" height="844"></div>
+      <figcaption>Round 1: selecting a state fades everything else.</figcaption>
+    </figure>
+    <figure class="cs-figure">
+      <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-vis-state-final.png" alt="Final design with numbered callouts on the interactive legend, animated dashed connectors, and highlighted paths" width="1732" height="908"></div>
+      <figcaption>Final: (1) interactive legend, (2) animated ant-track connectors, (3) path back to the root.</figcaption>
+    </figure>
+  </div>
+  <p class="cs-lead" style="margin:24px 0 0;">Testing showed animation helps at scale and gives a second cue beyond color. A deselect option stops the animation, and unselected nodes were lightened so they read differently from unknown ones.</p>
+</section>
+
+<section class="cs-section" id="cs-team">
+  <details class="cs-collapse">
+    <summary>
+      <div>
+        <div class="cs-section-label" style="margin-bottom:6px;">Team Deliverables</div>
+        <div class="cs-collapse-title">Also in the final design: four more features built by the team</div>
+      </div>
+      <div class="cs-collapse-toggle">
+        <span class="label-closed">Show features</span><span class="label-open">Hide features</span>
+        <svg class="chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
+    </summary>
+    <div class="cs-collapse-body">
+      <span class="cs-owner team">Team</span>
+      <p class="cs-lead">Together these four features cut the time it takes to find and fix a state change.</p>
+      <div class="cs-feature-grid">
+        <div class="cs-feature">
+          <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-team-cursor-states.png" alt="Designer toolbar showing pan and multi-select cursor states with hover and selected styles" width="1014" height="396"></div>
+          <div class="body"><h3>Cursor states in the Designer</h3><p>Pan and multi-select toggles on the canvas toolbar, so multi-select no longer depends on a hidden shortcut. Selected entities get a blue highlight.</p></div>
+        </div>
+        <div class="cs-feature">
+          <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-team-transition-state.png" alt="Entity details timeline centered on the last state change with a time flag" width="669" height="438"></div>
+          <div class="body"><h3>Transition point for state</h3><p>New State filters center the last state change on the timeline and flag the exact time it happened.</p></div>
+        </div>
+        <div class="cs-feature">
+          <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-team-tooltip.png" alt="Hover tooltips comparing a degraded entity showing 2 of 3 signals with a healthy entity" width="1007" height="685"></div>
+          <div class="body"><h3>Health tooltip</h3><p>Hover an entity to see which signals are degraded, such as 2 of 3, so users can prioritize faster.</p></div>
+        </div>
+        <div class="cs-feature">
+          <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-team-entities.png" alt="Entity cards in static and selected states, with radial meters counting degraded and unhealthy signals" width="918" height="330"></div>
+          <div class="body"><h3>Creating and editing entities</h3><p>Radial meters count degraded and unhealthy signals inside each entity, and blue marks the selected one, matching Microsoft standards.</p></div>
+        </div>
+      </div>
+    </div>
+  </details>
+</section>
+
+<section class="cs-section" id="cs-outcome">
+  <div class="cs-section-label">Outcome</div>
+  <div class="cs-note-grid">
+    <div class="cs-note">
+      <h3>What we worked within</h3>
+      <ul>
+        <li>One semester limited how many ideas we could design.</li>
+        <li>The platform is technical, and most of us had no technical background.</li>
+        <li>Designs had to fit Azure's design system and be feasible for engineers to build.</li>
+      </ul>
+    </div>
+    <div class="cs-note">
+      <h3>Handed off to Microsoft</h3>
+      <ul>
+        <li>Feasibility research on building each feature.</li>
+        <li>Testing at scale with much larger models.</li>
+        <li>More user testing with people from different backgrounds.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section">
+  <div class="cs-ai-callout">
+    <div class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+    </div>
+    <div>
+      <h3>Design &amp; Accessibility Approach</h3>
+      <p>Prototyped in Figma on top of Microsoft's own interface, so every change looked and behaved like Azure. We checked designs against WCAG 2.1, including non-text contrast, focus visibility, labels, and animation control.</p>
+      <div class="ai-tags">
+        <span>Figma</span>
+        <span>Heuristic Evaluation</span>
+        <span>WCAG 2.1</span>
+        <span>Usability Testing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section" id="cs-reflection">
+  <div class="cs-section-label">Reflection</div>
+  <!-- Reflection: deepened understanding of health monitoring platforms and enterprise software -->
+  <div class="cs-reflection">
+    This project deepened my understanding of health monitoring platforms and what it takes to design
+    inside a large enterprise software system. I learned the domain first, then learned to shape every
+    idea around Microsoft's design system and what engineers could realistically build.
+  </div>
+</section>
+
+<div class="cs-footer-nav">
+  <a href="../index.html#work">
+    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    Back to all work
+  </a>
+  <span style="font-family:'IBM Plex Mono', monospace; font-size:.75rem; color:var(--ink-soft);">Purdue UX Experience Studio · Fall 2025</span>
+</div>
+
+
+</div>
+</div>
+</main>
+
+<div class="lightbox-overlay" id="lightboxOverlay" role="dialog" aria-modal="true" aria-hidden="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close expanded image">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-hint">Click anywhere, or press Esc, to close</div>
+</div>
+
+<script src="../assets/script.js"></script>
+</body>
+</html>
