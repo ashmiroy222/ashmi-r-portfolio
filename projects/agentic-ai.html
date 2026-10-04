@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Agentic Maintenance Platform · ashmi.design</title>
-<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="../assets/styles.css?v=49">
 <style>
   .lightbox-trigger{ cursor: zoom-in; }
   .lightbox-overlay{
@@ -53,11 +53,11 @@
   <div class="cs-toc-title">Contents</div>
   <ol>
       <li><a href="#cs-top">Overview</a></li>
-      <li><a href="#cs-problem">The problem</a></li>
-      <li><a href="#cs-users">Users</a></li>
-      <li><a href="#cs-process">Process</a></li>
-      <li><a href="#solution">Solution</a></li>
-      <li><a href="#cs-reflection">Reflection</a></li>
+      <li><a href="#cs-problem">Context</a></li>
+      <li><a href="#cs-process">Research &amp; discovery</a></li>
+      <li><a href="#solution">Design decisions</a></li>
+      <li><a href="#cs-outcome">Outcomes &amp; evidence</a></li>
+      <li><a href="#cs-reflection">Reflection &amp; next steps</a></li>
   </ol>
 </div>
 </aside>
@@ -93,7 +93,7 @@
 </section>
 
 <section class="cs-section cs-overview" id="cs-problem">
-  <div class="cs-section-label">The problem</div>
+  <div class="cs-section-label">Context</div>
   <h2 style="font-family:'Manrope', sans-serif; font-weight:700; font-size:1.6rem; margin:0 0 18px;">Journey maps go stale. Nobody notices.</h2>
   <p>Journey maps are living documents that need to evolve as customer experiences change, products
   update, and new data emerges. But on this platform, there was no system to alert users when their
@@ -102,12 +102,10 @@
   <p>Users relied on manual review and indirect signals to catch stale content, which led to
   inefficiency, disconnected data, and eroding trust in the maps themselves.</p>
 
-  <div style="border-left:3px solid var(--accent); background:var(--accent-soft); border-radius:0 var(--radius) var(--radius) 0; padding:20px 24px; margin-top:24px;">
-    <div style="font-family:'IBM Plex Mono', monospace; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-bottom:8px;">Problem statement</div>
-    <p style="font-family:'Manrope', sans-serif; font-weight:700; font-size:1.15rem; color:var(--ink); margin:0; line-height:1.5; max-width:none;">
-      How might we help journey map owners identify and address outdated content, so their maps stay
-      accurate, trustworthy, and actionable over time?
-    </p>
+  <div class="cs-problem">
+    <div class="lab">Problem statement</div>
+    <p>How might we help journey map owners identify and address outdated content, so their maps stay
+      accurate, trustworthy, and actionable over time?</p>
   </div>
 </section>
 
@@ -145,10 +143,19 @@
       <b>Enterprise teams</b>Organizations managing multiple journey maps
     </div>
   </div>
+
+  <div class="cs-note" style="margin-top:28px;">
+    <h3>What we worked within</h3>
+    <ul>
+      <li>We could interview current platform users, but not test new concepts with them, so usability tests ran with 6 UX designers familiar with journey mapping.</li>
+      <li>Limited time and access to some competitor platforms narrowed the competitive analysis.</li>
+      <li>Client and proprietary details stay under NDA.</li>
+    </ul>
+  </div>
 </section>
 
 <section class="cs-section" id="cs-process">
-  <div class="cs-section-label">Process</div>
+  <div class="cs-section-label">Research &amp; discovery</div>
   <div class="cs-process-grid cs-process-3col">
     <div class="cs-step">
       <div class="cs-step-num">01</div>
@@ -181,7 +188,7 @@
 </section>
 
 <section class="cs-section" id="solution" style="scroll-margin-top: 100px;">
-  <div class="cs-section-label">The solution</div>
+  <div class="cs-section-label">Design decisions</div>
   <h2 style="font-family:'Manrope', sans-serif; font-weight:700; font-size:1.6rem; margin:0 0 14px;">An agentic AI maintenance agent</h2>
   <p style="color:var(--ink-soft); font-size:.94rem; max-width:70ch; margin:0 0 24px;">
     The final design introduces two complementary AI capabilities. Together they reduce manual
@@ -263,6 +270,58 @@
       </div>
     </div>
   </div>
+
+  <h3 style="font-family:'Manrope', sans-serif; font-weight:700; font-size:1.15rem; margin:44px 0 6px;">Why the agent works this way</h3>
+  <p style="color:var(--ink-soft); font-size:.92rem; max-width:70ch; margin:0 0 16px;">Each pattern traces back to our interviews or usability tests.</p>
+  <div class="cs-insights">
+    <div class="cs-insight">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+      <div class="heard"><q>Is this still a current pain point?</q><span class="src">Interviews, a question stakeholders keep asking</span></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="did"><b>Proactive stale-content alerts</b>Flags on the workspace and map, with timestamps.</div>
+    </div>
+    <div class="cs-insight">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+      <div class="heard">Users still wanted to verify AI output themselves.<span class="src">Interviews</span></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="did"><b>Approve, deny, skip, or undo</b>The agent never edits on its own.</div>
+    </div>
+    <div class="cs-insight">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+      <div class="heard">Testers checked the evidence behind every suggestion.<span class="src">Usability tests</span></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="did"><b>Evidence on every card</b>One click from the flag.</div>
+    </div>
+    <div class="cs-insight">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></div>
+      <div class="heard">Testers mixed up the storytelling AI and the maintenance AI.<span class="src">Usability tests</span></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="did"><b>One panel for the agent</b>Combined with the chat assistant.</div>
+    </div>
+    <div class="cs-insight">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="heard">Asking about a suggestion took too many steps.<span class="src">Usability tests</span></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="did"><b>A shorter flow</b>Fewer actions, plus a guided walkthrough.</div>
+    </div>
+  </div>
+</section>
+
+<section class="cs-section" id="cs-outcome">
+  <div class="cs-section-label">Outcomes &amp; evidence</div>
+  <div class="cs-stats">
+    <div class="cs-stat"><b>6</b><span>User interviews across 5 companies. I led 3 of them.</span></div>
+    <div class="cs-stat"><b>6</b><span>Usability tests on the high-fidelity prototype.</span></div>
+    <div class="cs-stat"><b>3 / 10</b><span>Average task difficulty reported by testers, where 10 is hardest.</span></div>
+    <div class="cs-stat"><b>4</b><span>Design iterations made from testing insights before handoff.</span></div>
+  </div>
+  <div class="cs-note">
+    <h3>What changed</h3>
+    <ul>
+      <li>Testers found the prototype simple to use, and valued being able to check the evidence behind each suggestion.</li>
+      <li>Design decisions and rationale were presented to the client's CEO and VP of Product, then refined with the sponsors' design guidelines for handoff.</li>
+    </ul>
+  </div>
 </section>
 
 <section class="cs-section">
@@ -286,11 +345,22 @@
 </section>
 
 <section class="cs-section" id="cs-reflection">
-  <div class="cs-section-label">Reflection</div>
+  <div class="cs-section-label">Reflection &amp; next steps</div>
   <p class="cs-reflection" style="max-width:none;">This was my first time working on an agentic AI product, so there was a lot
   of context research and understanding I had to build before I could even start designing. Working
   across a 9-person team also pushed me to communicate design decisions more clearly, since not
   everyone was looking at the problem the same way I was.</p>
+  <p class="cs-reflection" style="max-width:none;">I also learned that trust in AI is built in the details of the interface. Watching testers slow
+  down on vaguer suggestion cards and lean on the evidence behind each one showed me that transparency
+  has to be something people can see and check.</p>
+  <div class="cs-note" style="margin-top:28px;">
+    <h3>Recommended next</h3>
+    <ul>
+      <li>Revisit the walkthrough, since its overlap with manual suggestions still needs testing.</li>
+      <li>Measure real-world impact with the platform's own users a few months after launch.</li>
+      <li>Add onboarding that separates the maintenance agent from the platform's other AI features.</li>
+    </ul>
+  </div>
 </section>
 
 <div class="cs-footer-nav">
@@ -314,6 +384,6 @@
   <div class="lightbox-hint">Click anywhere, or press Esc, to close</div>
 </div>
 
-<script src="../assets/script.js"></script>
+<script src="../assets/script.js?v=49"></script>
 </body>
 </html>

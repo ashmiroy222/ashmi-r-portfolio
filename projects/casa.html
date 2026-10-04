@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MIC CASA Platform Redesign · ashmi.design</title>
-<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="../assets/styles.css?v=49">
 </head>
 <body class="cs-page">
 <header class="topbar">
@@ -21,12 +21,12 @@
 <div class="cs-toc-in">
   <div class="cs-toc-title">Contents</div>
   <ol>
-      <li><a href="#cs-overview">Overview</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#cs-contribution">My Contribution</a></li>
-      <li><a href="#cs-final">Final Prototype</a></li>
-      <li><a href="#cs-outcome">Outcome</a></li>
-      <li><a href="#cs-reflection">Reflection</a></li>
+      <li><a href="#cs-top">Overview</a></li>
+      <li><a href="#cs-overview">Context</a></li>
+      <li><a href="#process">Research &amp; discovery</a></li>
+      <li><a href="#cs-contribution">Design decisions</a></li>
+      <li><a href="#cs-outcome">Outcomes &amp; evidence</a></li>
+      <li><a href="#cs-reflection">Reflection &amp; next steps</a></li>
   </ol>
 </div>
 </aside>
@@ -57,7 +57,7 @@
 </section>
 
 <section class="cs-section cs-overview" id="cs-overview">
-  <div class="cs-section-label">Overview</div>
+  <div class="cs-section-label">Context</div>
   <p>MIC is a cloud-based platform that helps CASA volunteers manage cases and write court reports.</p>
   <p>MIC helps Court Appointed Special Advocates (CASAs) handle clerical work, so they can focus on children in
   CHINS cases: kids who need services because of neglect, abuse, or unsafe situations. CASA volunteers write the
@@ -65,11 +65,9 @@
   <p>Our team of nine set out to make report writing and case management faster. I owned user testing and the
   testing protocol, took the homepage and document page from sketch to final prototype, and organized our process.</p>
 
-  <div style="border-left:2px solid var(--ink); background:var(--surface-2); border-radius:0 12px 12px 0; padding:20px 24px; margin-top:24px;">
-    <div class="cs-kicker" style="margin-bottom:8px;">Design question</div>
-    <p style="font-family:'Manrope', sans-serif; font-size:1.15rem; color:var(--ink); margin:0; line-height:1.5; max-width:none;">
-      How might we design intuitive user flows that ensure efficiency for the user?
-    </p>
+  <div class="cs-problem">
+    <div class="lab">Problem statement</div>
+    <p>How might we reduce the time CASA volunteers spend writing court reports, so they can spend more time advocating for the child?</p>
   </div>
 </section>
 
@@ -101,6 +99,15 @@
       <b>AI in a sensitive setting</b>Reports hold private details about a child, so AI help had to be transparent and optional.
     </div>
   </div>
+
+  <div class="cs-note" style="margin-top:28px;">
+    <h3>What we worked within</h3>
+    <ul>
+      <li>No legal or compliance experts to check AI use.</li>
+      <li>Limited firsthand view of the full CASA workflow.</li>
+      <li>Testing with a small number of CASA volunteers.</li>
+    </ul>
+  </div>
 </section>
 
 <section class="cs-section">
@@ -123,7 +130,7 @@
 </section>
 
 <section class="cs-section" id="process">
-  <div class="cs-section-label">Process</div>
+  <div class="cs-section-label">Research &amp; discovery</div>
   <h2 class="cs-h2">From research to prototype</h2>
 
   <div class="cs-highlight">
@@ -191,7 +198,7 @@
 <hr class="cs-divider">
 
 <section class="cs-section" id="cs-contribution" style="scroll-margin-top:100px;">
-  <div class="cs-section-label">My Contribution</div>
+  <div class="cs-section-label">Design decisions</div>
   <div class="cs-sub">
     <h2 class="cs-h2">Sketching</h2>
     <p class="cs-lead">I sketched the homepage and the document page. The team then combined ideas on a whiteboard.</p>
@@ -245,7 +252,6 @@
 </section>
 
 <section class="cs-section" id="cs-final">
-  <div class="cs-section-label">Final Prototype</div>
   <div class="cs-sub">
     <h2 class="cs-h2">The final screens</h2>
     <p class="cs-lead">The final homepage and report page grew from my sketches.</p>
@@ -277,24 +283,19 @@
 </section>
 
 <section class="cs-section" id="cs-outcome">
-  <div class="cs-section-label">Outcome</div>
-  <div class="cs-note-grid">
-    <div class="cs-note">
-      <h3>What we worked within</h3>
-      <ul>
-        <li>No legal or compliance experts to check AI use.</li>
-        <li>Limited firsthand view of the full CASA workflow.</li>
-        <li>Testing with a small number of CASA volunteers.</li>
-      </ul>
-    </div>
-    <div class="cs-note">
-      <h3>Recommended next</h3>
-      <ul>
-        <li>Create a report from the case view.</li>
-        <li>More interactivity, like rearranging cards.</li>
-        <li>Onboarding tooltips, and testing with more CASAs.</li>
-      </ul>
-    </div>
+  <div class="cs-section-label">Outcomes &amp; evidence</div>
+  <div class="cs-stats">
+    <div class="cs-stat"><b>3</b><span>Usability tests with CASA volunteers, from 6 months to 10 years of experience.</span></div>
+    <div class="cs-stat"><b>2</b><span>Cognitive walkthroughs of the interactive prototype with UX students.</span></div>
+    <div class="cs-stat"><b>2</b><span>Fully interactive Figma flows delivered to the sponsor.</span></div>
+  </div>
+  <div class="cs-note">
+    <h3>What changed</h3>
+    <ul>
+      <li>Volunteers asked for drafts, so the report page offers Save as Draft next to Submit.</li>
+      <li>Red and green buttons confused colorblind volunteers, so color-only buttons were flagged as an accessibility fix.</li>
+      <li>Every AI suggestion shows a disclaimer and can be skipped, edited, or confirmed, keeping the volunteer in control.</li>
+    </ul>
   </div>
 </section>
 
@@ -317,11 +318,23 @@
 </section>
 
 <section class="cs-section" id="cs-reflection">
-  <div class="cs-section-label">Reflection</div>
-  <!-- DRAFT reflection: replace with Ashmi's own words -->
+  <div class="cs-section-label">Reflection &amp; next steps</div>
   <div class="cs-reflection">
     In a sensitive setting like child welfare, an AI feature has to earn trust before it can save time.
     Letting volunteers skip, edit, and confirm every suggestion mattered as much as the suggestion itself.
+  </div>
+  <div class="cs-reflection">
+    I also learned how to run usability tests with real users. Writing the protocol, finding volunteers,
+    and comparing our screens with Optima, the system they already use, taught me to understand what
+    people depend on today before asking them to change.
+  </div>
+  <div class="cs-note" style="margin-top:28px;">
+    <h3>Recommended next</h3>
+    <ul>
+      <li>Create a report from the case view.</li>
+      <li>More interactivity, like rearranging cards.</li>
+      <li>Onboarding tooltips, and testing with more CASAs.</li>
+    </ul>
   </div>
 </section>
 
@@ -346,6 +359,6 @@
   <div class="lightbox-hint">Click anywhere, or press Esc, to close</div>
 </div>
 
-<script src="../assets/script.js"></script>
+<script src="../assets/script.js?v=49"></script>
 </body>
 </html>

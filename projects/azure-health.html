@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Azure Monitor Health Models · ashmi.design</title>
-<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="../assets/styles.css?v=49">
 </head>
 <body class="cs-page">
 <header class="topbar">
@@ -21,12 +21,12 @@
 <div class="cs-toc-in">
   <div class="cs-toc-title">Contents</div>
   <ol>
-      <li><a href="#cs-overview">Overview</a></li>
-      <li><a href="#process">Process</a></li>
-      <li><a href="#cs-contribution">My Contribution</a></li>
-      <li><a href="#cs-team">Team Deliverables</a></li>
-      <li><a href="#cs-outcome">Outcome</a></li>
-      <li><a href="#cs-reflection">Reflection</a></li>
+      <li><a href="#cs-top">Overview</a></li>
+      <li><a href="#cs-overview">Context</a></li>
+      <li><a href="#process">Research &amp; discovery</a></li>
+      <li><a href="#cs-contribution">Design decisions</a></li>
+      <li><a href="#cs-outcome">Outcomes &amp; evidence</a></li>
+      <li><a href="#cs-reflection">Reflection &amp; next steps</a></li>
   </ol>
 </div>
 </aside>
@@ -67,18 +67,16 @@
 </div>
 
 <section class="cs-section cs-overview" id="cs-overview">
-  <div class="cs-section-label">Overview</div>
+  <div class="cs-section-label">Context</div>
   <p>Azure Health Models draws a cloud system as a tree of connected parts, each marked healthy, degraded,
   or unhealthy. People open it when something is already going wrong, and it was built for experts.</p>
   <p>Our team of seven worked with two Microsoft engineers to make it clearer for both new and experienced
   users. I designed the Threshold Spectrum, a gauge that shows how close an entity is to failing. I also mapped and tested the Visibility of State designs.</p>
 
-  <div style="border-left:2px solid var(--ink); background:var(--surface-2); border-radius:0 12px 12px 0; padding:20px 24px; margin-top:24px;">
-    <div class="cs-kicker" style="margin-bottom:8px;">Design question</div>
-    <p style="font-family:'Manrope', sans-serif; font-size:1.15rem; color:var(--ink); margin:0; line-height:1.5; max-width:none;">
-      How can we redesign Azure Monitor health models to enhance clarity and usability for both
-      experienced and new users, without breaking what already works?
-    </p>
+  <div class="cs-problem">
+    <div class="lab">Problem statement</div>
+    <p>How can we redesign Azure Monitor health models to enhance clarity and usability for both
+      experienced and new users, without breaking what already works?</p>
   </div>
 </section>
 
@@ -111,6 +109,15 @@
       <b>Color does the work</b>State is shown mostly by color, which is hard to read at scale or with color blindness.
     </div>
   </div>
+
+  <div class="cs-note" style="margin-top:28px;">
+    <h3>What we worked within</h3>
+    <ul>
+      <li>One semester limited how many ideas we could design.</li>
+      <li>The platform is technical, and most of us had no technical background.</li>
+      <li>Designs had to fit Azure's design system and be feasible for engineers to build.</li>
+    </ul>
+  </div>
 </section>
 
 <section class="cs-section">
@@ -137,7 +144,7 @@
 </section>
 
 <section class="cs-section" id="process">
-  <div class="cs-section-label">Process</div>
+  <div class="cs-section-label">Research &amp; discovery</div>
   <h2 class="cs-h2">Research first, then ideas</h2>
 
   <div class="cs-highlight" style="margin-top:0;">
@@ -161,10 +168,11 @@
         </div>
       </div>
       <div class="cs-step-panel" role="tabpanel">
-        <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-datadog-analysis.png" alt="Sticky notes summarizing Datadog features from the competitive analysis" width="2134" height="1416"></div>
+        <div class="frame"><img class="lightbox-trigger" src="../assets/img/azure-datadog-analysis.png" alt="Sticky notes summarizing Datadog features from my competitive analysis" width="2134" height="1416"></div>
         <div><span class="badge">My work</span>
           <div class="pair"><div class="lab">We compared</div><p>Azure with four rival monitoring tools, to see how each one shows system health.</p></div>
-          <div class="pair"><div class="lab">My part</div><p>The Datadog analysis. I broke its features down on sticky notes for the team's competitive analysis.</p></div>
+          <div class="pair"><div class="lab">My part</div><p>The Datadog and IBM Instana analyses. I broke down each tool's features for the team's competitive analysis.</p></div>
+          <div class="pair"><div class="lab">I found</div><p>Instana lets users filter alerts by issue type to get to triage faster, but keeps alert history for only 7 days, compared with 30 in Azure. Its filters became a question we asked in our interviews.</p></div>
         </div>
       </div>
       <div class="cs-step-panel" role="tabpanel">
@@ -177,10 +185,10 @@
         </div>
       </div>
       <div class="cs-step-panel" role="tabpanel">
-        <div class="frame quote"><q>How close am I to unhealthy from degraded?</q><span>An Azure user, in our interviews</span></div>
+        <div class="frame quote"><q>Something you would show in a marketing demo.</q><span>Interview 2, on the graph's health colors</span></div>
         <div><span class="badge">My work</span>
-          <div class="pair"><div class="lab">We heard</div><p>Alert fatigue and a steep learning curve.</p></div>
-          <div class="pair"><div class="lab">From</div><p>2 user interviews. Users described learning the tool by trial and error, and said many features were hidden.</p></div>
+          <div class="pair"><div class="lab">We heard</div><p>Alert fatigue, a steep learning curve, and colors that were hard to read without a legend.</p></div>
+          <div class="pair"><div class="lab">From</div><p>2 user interviews in October 2025. One user learned the tool by trial and error, and said it is opened in times of distress, when there is no time to dig for answers.</p></div>
           <div class="pair"><div class="lab">My part</div><p>I wrote the interview protocol and took part in the interviews.</p></div>
         </div>
       </div>
@@ -207,7 +215,7 @@
   <div class="cs-note" style="margin-top:28px;">
     <h3>Beyond the Threshold Spectrum</h3>
     <ul class="cols">
-      <li>Analyzed Datadog for the competitive analysis.</li>
+      <li>Analyzed Datadog and IBM Instana for the competitive analysis.</li>
       <li>Wrote the interview and testing protocols.</li>
       <li>Took part in interviews and ran usability tests.</li>
       <li>Mapped current and redesigned flows for Visibility of State.</li>
@@ -220,15 +228,15 @@
 <hr class="cs-divider">
 
 <section class="cs-section" id="cs-contribution" style="scroll-margin-top:100px;">
-  <div class="cs-section-label">My Contribution</div>
+  <div class="cs-section-label">Design decisions</div>
   <span class="cs-owner">My feature</span>
   <h2 class="cs-h2">Threshold Spectrum: how close is this to failing?</h2>
   <p class="cs-lead">A degraded entity looks the same whether it just crossed the line or is minutes from failing.
   I designed a gauge that shows where an entity sits between healthy and unhealthy, so users can judge urgency at a glance.</p>
 
   <div class="cs-quote-card">
-    <q>How close am I to unhealthy from degraded?</q>
-    <span>Question raised by an Azure user in our interviews</span>
+    <q>How far are you from unhealthy, and how quickly are you approaching it?</q>
+    <span>The question behind this feature, from our Interview 1 notes</span>
   </div>
 
   <div class="cs-split">
@@ -299,20 +307,11 @@
   <p class="cs-lead" style="margin:24px 0 0;">Testing showed animation helps at scale and gives a second cue beyond color. A deselect option stops the animation, and unselected nodes were lightened so they read differently from unknown ones.</p>
 </section>
 
+<hr class="cs-divider">
+
 <section class="cs-section" id="cs-team">
-  <details class="cs-collapse">
-    <summary>
-      <div>
-        <div class="cs-section-label" style="margin-bottom:6px;">Team Deliverables</div>
-        <div class="cs-collapse-title">Also in the final design: four more features built by the team</div>
-      </div>
-      <div class="cs-collapse-toggle">
-        <span class="label-closed">Show features</span><span class="label-open">Hide features</span>
-        <svg class="chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-    </summary>
-    <div class="cs-collapse-body">
       <span class="cs-owner team">Team</span>
+      <h2 class="cs-h2">Also in the final design: four features built by the team</h2>
       <p class="cs-lead">Together these four features cut the time it takes to find and fix a state change.</p>
       <div class="cs-feature-grid">
         <div class="cs-feature">
@@ -332,29 +331,58 @@
           <div class="body"><h3>Creating and editing entities</h3><p>Radial meters count degraded and unhealthy signals inside each entity, and blue marks the selected one, matching Microsoft standards.</p></div>
         </div>
       </div>
+
+  <h3 style="font-family:'Manrope', sans-serif; font-weight:700; font-size:1.15rem; margin:44px 0 6px;">How interviews shaped these choices</h3>
+  <p style="color:var(--ink-soft); font-size:.92rem; max-width:70ch; margin:0 0 16px;">Each final feature answers something we heard in our two interviews.</p>
+  <div class="cs-insights">
+    <div class="cs-insight">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16a8 8 0 1 1 16 0"/><path d="M12 16l4-5"/></svg></div>
+      <div class="heard">How far from unhealthy, and how fast?<span class="src">Interview 1 notes</span></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="did"><b>Threshold Spectrum</b>A gauge plus a Health Score breakdown.</div>
     </div>
-  </details>
+    <div class="cs-insight">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h9"/></svg></div>
+      <div class="heard"><q>Something you would show in a marketing demo.</q><span class="src">Interview 2, on the health colors</span></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="did"><b>Legend and ant tracks</b>A second cue beyond color.</div>
+    </div>
+    <div class="cs-insight">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l14 7-6 2-2 6z"/></svg></div>
+      <div class="heard">Nothing showed that multi-select existed.<span class="src">Interview 2 notes</span></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="did"><b>Toolbar cursor states</b>No hidden shortcut.</div>
+    </div>
+    <div class="cs-insight">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <div class="heard">Wanted to look back, not just at now.<span class="src">Interview 2 notes</span></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="did"><b>State filters on the timeline</b>Jump to the last state change.</div>
+    </div>
+    <div class="cs-insight">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+      <div class="heard">Opened in a crisis, with no time to dig.<span class="src">Interview 2 notes</span></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="did"><b>Health tooltip</b>See degraded signals on hover.</div>
+    </div>
+  </div>
 </section>
 
 <section class="cs-section" id="cs-outcome">
-  <div class="cs-section-label">Outcome</div>
-  <div class="cs-note-grid">
-    <div class="cs-note">
-      <h3>What we worked within</h3>
-      <ul>
-        <li>One semester limited how many ideas we could design.</li>
-        <li>The platform is technical, and most of us had no technical background.</li>
-        <li>Designs had to fit Azure's design system and be feasible for engineers to build.</li>
-      </ul>
-    </div>
-    <div class="cs-note">
-      <h3>Handed off to Microsoft</h3>
-      <ul>
-        <li>Feasibility research on building each feature.</li>
-        <li>Testing at scale with much larger models.</li>
-        <li>More user testing with people from different backgrounds.</li>
-      </ul>
-    </div>
+  <div class="cs-section-label">Outcomes &amp; evidence</div>
+  <div class="cs-stats">
+    <div class="cs-stat"><b>2</b><span>User interviews that shaped every final feature.</span></div>
+    <div class="cs-stat"><b>2</b><span>Rounds of usability testing on our designs.</span></div>
+    <div class="cs-stat"><b>3 of 10</b><span>Heuristics failed in our evaluation, with 2 more needing work.</span></div>
+    <div class="cs-stat"><b>4</b><span>Ideas prioritized with Microsoft sponsors and carried into the final design.</span></div>
+  </div>
+  <div class="cs-note">
+    <h3>What changed</h3>
+    <ul>
+      <li>For the health tooltip, our documentation notes that Azure is adjusting the way it fetches data to allow the change.</li>
+      <li>Testing moved the Threshold Spectrum from a gradient to color blocks, and added animation as a second cue beyond color.</li>
+      <li>We delivered design recommendations, prototypes, and a transition document to the Microsoft sponsors.</li>
+    </ul>
   </div>
 </section>
 
@@ -377,12 +405,24 @@
 </section>
 
 <section class="cs-section" id="cs-reflection">
-  <div class="cs-section-label">Reflection</div>
-  <!-- Reflection: deepened understanding of health monitoring platforms and enterprise software -->
+  <div class="cs-section-label">Reflection &amp; next steps</div>
   <div class="cs-reflection">
     This project deepened my understanding of health monitoring platforms and what it takes to design
     inside a large enterprise software system. I learned the domain first, then learned to shape every
     idea around Microsoft's design system and what engineers could realistically build.
+  </div>
+  <div class="cs-reflection">
+    I also learned how much one interview can redirect a feature. A single question about how far an
+    entity was from unhealthy became the Threshold Spectrum, and one user's reaction to the colors
+    pushed our team to add a second cue beyond color.
+  </div>
+  <div class="cs-note" style="margin-top:28px;">
+    <h3>Handed off to Microsoft</h3>
+    <ul>
+      <li>Feasibility research on building each feature.</li>
+      <li>Testing at scale with much larger models.</li>
+      <li>More user testing with people from different backgrounds.</li>
+    </ul>
   </div>
 </section>
 
@@ -407,6 +447,6 @@
   <div class="lightbox-hint">Click anywhere, or press Esc, to close</div>
 </div>
 
-<script src="../assets/script.js"></script>
+<script src="../assets/script.js?v=49"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NHanCE Lab: Autonomous Vehicle Human Interface Research · ashmi.design</title>
-<link rel="stylesheet" href="../assets/styles.css">
+<link rel="stylesheet" href="../assets/styles.css?v=49">
 </head>
 <body class="cs-page">
 <header class="topbar">
@@ -22,11 +22,11 @@
   <div class="cs-toc-title">Contents</div>
   <ol>
       <li><a href="#cs-top">Overview</a></li>
-      <li><a href="#cs-background">Background</a></li>
-      <li><a href="#cs-literature">Literature</a></li>
-      <li><a href="#cs-process">Process</a></li>
-      <li><a href="#cs-status">Where it stands</a></li>
-      <li><a href="#cs-reflection">Reflection</a></li>
+      <li><a href="#cs-context">Context</a></li>
+      <li><a href="#cs-literature">Research &amp; discovery</a></li>
+      <li><a href="#cs-process">Design decisions</a></li>
+      <li><a href="#cs-status">Outcomes &amp; evidence</a></li>
+      <li><a href="#cs-reflection">Reflection &amp; next steps</a></li>
   </ol>
 </div>
 </aside>
@@ -38,7 +38,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
     Back to all work
   </a>
-  <span class="tag">HAII · Human Factors · Individual Research</span>
+  <span class="tag">HAII · Human Factors · Individual Research · In progress</span>
   <h1 class="cs-title" style="text-align:left; margin-left:0;">NHanCE Lab:<br>Autonomous Vehicle Human Interface Research</h1>
   <p class="cs-subtitle">How does initial exposure to accurate or inaccurate AV confidence information
   shape driver behavior, trust, and physiological response over time, particularly among elderly users?
@@ -48,6 +48,7 @@
     <div class="cs-meta-item"><b>Lab</b><a href="https://engineering.purdue.edu/NHanCE" target="_blank" rel="noopener" style="color:inherit; text-decoration:underline; text-underline-offset:3px;">NHanCE Lab, Purdue School of Industrial Engineering</a></div>
     <div class="cs-meta-item"><b>Role</b>Undergraduate Research Assistant</div>
     <div class="cs-meta-item"><b>Timeline</b>Jan 2026 to Present</div>
+    <div class="cs-meta-item"><b>Status</b>Ongoing study, in progress</div>
     <div class="cs-meta-item"><b>Tools</b>Figma, Python, HMI Design</div>
     <div class="cs-meta-item"><b>Team</b>Solo, PhD-mentored</div>
   </div>
@@ -75,8 +76,8 @@
   </p>
 </div>
 
-<section class="cs-section cs-overview">
-  <div class="cs-section-label">Overview</div>
+<section class="cs-section cs-overview" id="cs-context">
+  <div class="cs-section-label">Context</div>
   <p>Autonomous vehicles constantly communicate confidence to the humans inside them, whether or not
   that confidence is accurate. My research at NHanCE Lab looks at what happens when that first signal
   is right versus wrong, and how that shapes a rider's trust, behavior, and even physiological response
@@ -84,22 +85,32 @@
   <p>The work spans three threads: grounding the study in existing literature on trust calibration,
   building the real-time confidence display participants interact with, and communicating findings
   across a cross-disciplinary research team.</p>
+  <p>The same problem shows up in enterprise software. Any tool that hands people an automated
+  recommendation, from an AI assistant to a system monitoring dashboard, has to help operators decide
+  when to rely on it and when to step in. This study looks at that decision in one of its highest-stakes
+  forms.</p>
+
+  <div class="cs-problem">
+    <div class="lab">Problem statement</div>
+    <p>How might an autonomous vehicle's confidence display help elderly riders trust the system the
+      right amount, even when its information is sometimes wrong?</p>
+  </div>
 </section>
 
 <section class="cs-section" id="cs-background">
-  <details class="cs-collapse">
-    <summary>
-      <div>
-        <div class="cs-section-label" style="margin-bottom:6px;">Background</div>
-        <div class="cs-collapse-title">How does information accuracy shape trust in autonomous vehicles?</div>
-      </div>
-      <div class="cs-collapse-toggle">
-        <span class="label-closed">Read more</span>
-        <span class="label-open">Read less</span>
-        <svg class="chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-      </div>
-    </summary>
-    <div class="cs-collapse-body">
+  <h2 class="cs-h2">What the SAE levels mean</h2>
+  <p class="cs-lead">The Society of Automotive Engineers (SAE) sorts cars into six levels, based on how much of the
+  driving the car does and how much the person still has to do.</p>
+  <div class="cs-why" style="margin-bottom:28px;">
+    <div class="cs-why-row head"><div>Level</div><div>Who is driving</div></div>
+    <div class="cs-why-row"><div><b>Level 0: No automation</b></div><div><p>The person does all the driving. The car may only give warnings, like a beep when you drift out of your lane.</p></div></div>
+    <div class="cs-why-row"><div><b>Level 1: Driver assistance</b></div><div><p>The car helps with one thing at a time, such as keeping a set distance on the highway. The person does the rest.</p></div></div>
+    <div class="cs-why-row"><div><b>Level 2: Partial automation</b></div><div><p>The car can steer and control speed together, but the person must watch the road the whole time.</p></div></div>
+    <div class="cs-why-row"><div><b>Level 3: Conditional automation</b></div><div><p>The car drives itself in certain conditions. The person can look away, but must take over when the car asks. This is the level this study focuses on.</p></div></div>
+    <div class="cs-why-row"><div><b>Level 4: High automation</b></div><div><p>The car drives itself within a set area or set conditions, and does not need the person to take over there.</p></div></div>
+    <div class="cs-why-row"><div><b>Level 5: Full automation</b></div><div><p>The car drives itself anywhere, in any conditions, with no person needed.</p></div></div>
+  </div>
+  <div style="color:var(--ink-soft); line-height:1.7;">
       <p>Autonomous vehicles are classified by the Society of Automotive Engineers into six levels of
       automation. At SAE Level 3, a vehicle can handle most driving tasks on its own, steering, braking,
       monitoring the environment, but it is not fully autonomous. It still requires a human driver to be
@@ -112,12 +123,11 @@
       Sensors fail, systems misjudge conditions, and when drivers repeatedly encounter information that
       does not match reality, they form cognitive biases that shape whether they trust the system, and
       when they decide to take over.</p>
-    </div>
-  </details>
+  </div>
 </section>
 
 <section class="cs-section" id="cs-literature">
-  <div class="cs-section-label">Key literature finding</div>
+  <div class="cs-section-label">Research &amp; discovery</div>
   <div style="border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); padding:32px clamp(20px,4vw,44px);">
     <h3 style="font-family:'Manrope', sans-serif; font-weight:700; font-size:1.3rem; margin:0 0 6px;">Trust calibration over time</h3>
     <p style="color:var(--ink-soft); font-size:.88rem; margin:0 0 28px; max-width:60ch;">How initial exposure to accurate vs. inaccurate AV confidence information creates diverging trust trajectories</p>
@@ -156,7 +166,7 @@
             <div style="font-family:'Manrope', sans-serif; font-weight:700; font-size:.85rem; color:var(--c4);">Accurate first</div>
             <div style="font-family:'Manrope', sans-serif; font-size:.75rem; color:var(--ink-soft); margin-top:2px;">Trust anchors high and persists</div>
           </div>
-          <div style="border-left:3px solid var(--c2); padding:4px 0 4px 12px;">
+          <div style="border-left:3px dashed var(--c2); padding:4px 0 4px 12px;">
             <div style="font-family:'Manrope', sans-serif; font-weight:700; font-size:.85rem; color:var(--c2);">Inaccurate first</div>
             <div style="font-family:'Manrope', sans-serif; font-size:.75rem; color:var(--ink-soft); margin-top:2px;">Trust degrades, only partial recovery</div>
           </div>
@@ -166,12 +176,12 @@
 
     <div style="display:flex; gap:28px; flex-wrap:wrap; margin-top:24px; padding-top:18px; border-top:1px solid var(--line);">
       <div style="display:flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:.74rem; color:var(--ink-soft);">
-        <span style="width:16px; height:2px; background:var(--c4); display:inline-block;"></span>
-        Accurate information first, trust calibrates well and persists
+        <svg width="28" height="6" viewBox="0 0 28 6" aria-hidden="true" style="flex-shrink:0;"><line x1="1" y1="3" x2="27" y2="3" stroke="var(--c4)" stroke-width="3" stroke-linecap="round"/></svg>
+        Solid line: accurate information first, trust calibrates well and persists
       </div>
       <div style="display:flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:.74rem; color:var(--ink-soft);">
-        <span style="width:16px; height:2px; background:var(--c2); display:inline-block; background-image:linear-gradient(90deg, var(--c2) 60%, transparent 40%); background-size:6px 2px;"></span>
-        Inaccurate information first, trust degrades, limited recovery
+        <svg width="28" height="6" viewBox="0 0 28 6" aria-hidden="true" style="flex-shrink:0;"><line x1="1" y1="3" x2="27" y2="3" stroke="var(--c2)" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 5"/></svg>
+        Dashed line: inaccurate information first, trust degrades, limited recovery
       </div>
     </div>
     <p style="font-family:'IBM Plex Mono', monospace; font-size:.66rem; color:var(--ink-soft); margin:16px 0 0; opacity:.75;">
@@ -181,7 +191,7 @@
 </section>
 
 <section class="cs-section" id="cs-process">
-  <div class="cs-section-label">Process</div>
+  <div class="cs-section-label">Design decisions</div>
   <div class="cs-process-grid cs-process-3col">
     <div class="cs-step">
       <div class="cs-step-num" style="width:38px; height:38px; font-size:.88rem; font-weight:700; color:var(--accent); border:1.5px solid var(--accent); background:var(--accent-soft);">01</div>
@@ -229,8 +239,25 @@
   </div>
 </section>
 
+<section class="cs-section">
+  <h2 class="cs-h2">Why it matters for enterprise UX</h2>
+  <p class="cs-lead">The questions this study asks about cars map directly onto the AI and automation tools enterprise teams build.</p>
+  <div class="cs-why">
+    <div class="cs-why-row head"><div>In this study</div><div>In enterprise software</div></div>
+    <div class="cs-why-row"><div><b>Calibrating trust in an AV's confidence display</b></div><div><p>Designing confidence displays so operators trust automated recommendations the right amount, not blindly and not too little.</p></div></div>
+    <div class="cs-why-row"><div><b>SAE Level 3 takeover moments</b></div><div><p>Designing handoffs for systems that run on their own until they reach a limit and need a person to step in.</p></div></div>
+    <div class="cs-why-row"><div><b>Inaccurate confidence information</b></div><div><p>Designing for the moment an AI is wrong, so one bad recommendation does not break trust in the whole tool.</p></div></div>
+    <div class="cs-why-row"><div><b>Elderly riders</b></div><div><p>Designing for users with different levels of technology experience, not only power users.</p></div></div>
+  </div>
+</section>
+
 <section class="cs-section" id="cs-status">
-  <div class="cs-section-label">Where it stands</div>
+  <div class="cs-section-label">Outcomes &amp; evidence</div>
+  <p class="cs-lead">The study is still in progress, so there are no results yet. Here is what exists today.</p>
+  <div class="cs-stats">
+    <div class="cs-stat"><b>70+</b><span>Sources synthesized in a literature review on trust in automation, AV interfaces, and elderly users.</span></div>
+    <div class="cs-stat"><b>3</b><span>Test scenarios the real-time Python HMI visualizes for the study.</span></div>
+  </div>
   <div class="cs-outcome-grid">
     <div class="credential" style="--credential-accent: var(--c1);">
       <div class="credential-icon">
@@ -254,9 +281,19 @@
 </section>
 
 <section class="cs-section" id="cs-reflection">
-  <div class="cs-section-label">Reflection</div>
+  <div class="cs-section-label">Reflection &amp; next steps</div>
   <p class="cs-reflection">This was my first time working on research, and it made me fall in love with designing
   for accessibility and for autonomous vehicle technology.</p>
+  <p class="cs-reflection">I am also learning to translate research for different audiences. Explaining trust
+  calibration to engineers and human factors researchers is teaching me to turn academic findings into
+  decisions a design team can act on.</p>
+  <div class="cs-note" style="margin-top:28px;">
+    <h3>What comes next</h3>
+    <ul>
+      <li>Run study sessions with elderly participants using the confidence display.</li>
+      <li>Compare trust, behavior, and physiological response between accurate and inaccurate first exposure.</li>
+    </ul>
+  </div>
 </section>
 
 <div class="cs-footer-nav">
@@ -272,6 +309,6 @@
 </div>
 </main>
 
-<script src="../assets/script.js"></script>
+<script src="../assets/script.js?v=49"></script>
 </body>
 </html>
